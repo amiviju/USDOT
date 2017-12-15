@@ -8,13 +8,15 @@ view: irregularity_point_sequence {
   }
 
   dimension: location_x {
-    type: string
-    sql: ${TABLE}.location_x ;;
+    type: location
+    sql_latitude: ${TABLE}.location_x ;;
+    sql_longitude: ${TABLE}.location_x ;;
   }
 
   dimension: location_y {
-    type: string
-    sql: ${TABLE}.location_y ;;
+    type: location
+    sql_latitude: ${TABLE}.location_y ;;
+    sql_longitude: ${TABLE}.location_y ;;
   }
 
   dimension: sequence_order {
