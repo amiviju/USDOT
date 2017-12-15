@@ -7,17 +7,12 @@ view: irregularity_point_sequence {
     sql: ${TABLE}.irregularity_id ;;
   }
 
-  dimension: location_x {
+  dimension: location {
     type: location
-    sql_latitude: ${TABLE}.location_x ;;
+    sql_latitude: ${TABLE}.location_y ;;
     sql_longitude: ${TABLE}.location_x ;;
   }
 
-  dimension: location_y {
-    type: location
-    sql_latitude: ${TABLE}.location_y ;;
-    sql_longitude: ${TABLE}.location_y ;;
-  }
 
   dimension: sequence_order {
     type: string

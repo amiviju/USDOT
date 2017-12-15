@@ -6,16 +6,10 @@ view: corridor_point_sequence {
     sql: ${TABLE}.corridor_id ;;
   }
 
-  dimension: location_x {
-    type: location
-    sql_latitude: ${TABLE}.location_x ;;
-    sql_longitude: ${TABLE}.location_x ;;
-  }
-
-  dimension: location_y {
+  dimension: location {
     type: location
     sql_latitude: ${TABLE}.location_y ;;
-    sql_longitude: ${TABLE}.location_y ;;
+    sql_longitude: ${TABLE}.location_x ;;
   }
 
   dimension: sequence_order {
