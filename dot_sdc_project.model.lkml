@@ -55,7 +55,13 @@ explore: irregularity_point_sequence {
   }
 }
 
-explore: jam {}
+explore: jam {
+  join: jam_point_sequence {
+    type: left_outer
+    sql_on: ${jam.id} = ${jam_point_sequence.jam_id} ;;
+    relationship: one_to_many
+  }
+}
 
 explore: jam_point_sequence {
   join: jam {
