@@ -21,7 +21,13 @@ explore: corridor_jam {}
 
 explore: corridor_point_sequence {}
 
-explore: corridor_reading {}
+explore: corridor_reading {
+  join: corridor_point_sequence {
+    type: left_outer
+    sql_on: ${corridor_reading.corridor_id} = ${corridor_point_sequence.corridor_id} ;;
+    relationship: one_to_many
+  }
+}
 
 explore: irregularity {
   join: irregularity_point_sequence {
