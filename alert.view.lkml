@@ -32,14 +32,10 @@ view: alert {
     sql: ${TABLE}.jam_uuid ;;
   }
 
-  dimension: location_lat {
-    type: string
-    sql: ${TABLE}.location_lat ;;
-  }
-
-  dimension: location_lon {
-    type: string
-    sql: ${TABLE}.location_lon ;;
+  dimension: location {
+    type: location
+    sql_latitude: ${TABLE}.location_lat ;;
+    sql_longitude: ${TABLE}.location_lon ;;
   }
 
   dimension: magvar {
