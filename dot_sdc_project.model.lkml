@@ -23,7 +23,13 @@ explore: corridor_point_sequence {}
 
 explore: corridor_reading {}
 
-explore: irregularity {}
+explore: irregularity {
+  join: irregularity_point_sequence {
+    type: left_outer
+    sql_on: ${irregularity.id} = ${irregularity_point_sequence.irregularity_id} ;;
+    relationship: one_to_many
+  }
+}
 
 explore: irregularity_alert {
   join: irregularity {
