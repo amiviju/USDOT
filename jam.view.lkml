@@ -112,6 +112,12 @@ view: jam {
     sql: ${TABLE}.turn_type ;;
   }
 
+  dimension: jam_location {
+    type: location
+    sql_longitude: ${jam_point_sequence.location_x} ;;
+    sql_latitude: ${jam_point_sequence.location_y} ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [id, jam_point_sequence.count]

@@ -7,6 +7,16 @@ view: jam_point_sequence {
     sql: ${TABLE}.jam_id ;;
   }
 
+  dimension: location_x {
+    type: string
+    sql: ${TABLE}.location_x ;;
+  }
+
+  dimension: location_y {
+    type: string
+    sql: ${TABLE}.location_y ;;
+  }
+
   dimension: location {
     type: location
     sql_longitude: ${TABLE}.location_x ;;

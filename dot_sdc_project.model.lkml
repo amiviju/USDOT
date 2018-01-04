@@ -15,16 +15,22 @@ persist_with: dot_sdc_project_default_datagroup
 
 explore: alert {}
 
-explore: corridor_alert {}
-
-explore: corridor_jam {}
-
-explore: corridor_point_sequence {}
-
 explore: corridor_reading {
   join: corridor_point_sequence {
     type: left_outer
     sql_on: ${corridor_reading.corridor_id} = ${corridor_point_sequence.corridor_id} ;;
+    relationship: one_to_many
+  }
+
+  join: corridor_alert {
+    type: left_outer
+    sql_on: ${corridor_reading.corridor_id} = ${corridor_alert.corridor_id} ;;
+    relationship: one_to_many
+  }
+
+  join: corridor_jam {
+    type: left_outer
+    sql_on: ${corridor_reading.corridor_id} = ${corridor_jam.corridor_id} ;;
     relationship: one_to_many
   }
 }
@@ -35,30 +41,19 @@ explore: irregularity {
     sql_on: ${irregularity.id} = ${irregularity_point_sequence.irregularity_id} ;;
     relationship: one_to_many
   }
-}
 
-explore: irregularity_alert {
-  join: irregularity {
+  join: irregularity_alert {
     type: left_outer
     sql_on: ${irregularity_alert.irregularity_id} = ${irregularity.id} ;;
-    relationship: many_to_one
+    relationship: one_to_many
   }
-}
 
-explore: irregularity_jam {
-  join: irregularity {
+  join: irregularity_jam {
     type: left_outer
     sql_on: ${irregularity_jam.irregularity_id} = ${irregularity.id} ;;
-    relationship: many_to_one
+    relationship: one_to_many
   }
-}
 
-explore: irregularity_point_sequence {
-  join: irregularity {
-    type: left_outer
-    sql_on: ${irregularity_point_sequence.irregularity_id} = ${irregularity.id} ;;
-    relationship: many_to_one
-  }
 }
 
 explore: jam {
@@ -66,13 +61,5 @@ explore: jam {
     type: left_outer
     sql_on: ${jam.id} = ${jam_point_sequence.jam_id} ;;
     relationship: one_to_many
-  }
-}
-
-explore: jam_point_sequence {
-  join: jam {
-    type: left_outer
-    sql_on: ${jam_point_sequence.jam_id} = ${jam.id} ;;
-    relationship: many_to_one
   }
 }
